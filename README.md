@@ -1,4 +1,4 @@
-# ExportGrid
+# Angular-custom-grid
 - Clone this repo
 - Open command prompt and move to that directory(using 'cd' command)
 - Run following command: 
