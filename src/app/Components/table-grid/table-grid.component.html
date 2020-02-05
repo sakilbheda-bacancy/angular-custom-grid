@@ -1,0 +1,54 @@
+<div class="container mx-tb-20">
+    <!-- Title -->
+    <h2 class="title">Developer List</h2>
+    <div class="header">
+      <!-- Search by field -->
+      <input class="form-control" [(ngModel)]="search" placeholder="Search by Name, Designation, Number or Email" 
+        (ngModelChange)="filterUser()">
+
+      <!-- Export button -->
+      <button class="btn btn-primary exportBtn" (click)="exportCSV()">Export to csv</button>
+    </div>
+
+    <!-- Table Grid -->
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+
+          <!-- Table Column name -->
+          <thead>
+            <tr>
+              <th class="crsr-pntr" (click)="sortUser('Name')">
+                Name <i *ngIf="sortingColumn === 'Name'" class="fa {{sortType === '' || sortType === 'ASC' ? 'fa-sort-amount-asc' : 'fa-sort-amount-desc'}}"></i>
+              </th>
+              <th class="crsr-pntr" (click)="sortUser('Designation')">
+                Designation <i *ngIf="sortingColumn === 'Designation'" class="fa {{sortType === '' || sortType === 'ASC' ? 'fa-sort-amount-asc' : 'fa-sort-amount-desc'}}"></i>
+              </th>
+              <th class="crsr-pntr" (click)="sortUser('Number')">
+                Number <i *ngIf="sortingColumn === 'Number'" class="fa {{sortType === '' || sortType === 'ASC' ? 'fa-sort-amount-asc' : 'fa-sort-amount-desc'}}"></i>
+              </th>
+              <th class="crsr-pntr" (click)="sortUser('Email')">
+                Email <i *ngIf="sortingColumn === 'Email'" class="fa {{sortType === '' || sortType === 'ASC' ? 'fa-sort-amount-asc' : 'fa-sort-amount-desc'}}"></i>
+              </th>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <tbody>
+            <tr *ngFor="let user of pageWiseArray">
+              <td>{{user.Name}}</td>
+              <td>{{user.Designation}}</td>
+              <td>{{user.Number}}</td>
+              <td>{{user.Email}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div class="rightAlign">
+          <pagination [boundaryLinks]="true" [totalItems]="users.length" [itemsPerPage]="perPageLimit" [maxSize]="5" 
+            (pageChanged)="pageChanged($event)" class="pagination-sm"></pagination>
+        </div>
+      </div>
+    </div>
+  </div>

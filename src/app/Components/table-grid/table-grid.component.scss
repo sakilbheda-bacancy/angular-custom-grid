@@ -1,0 +1,51 @@
+.container {
+    font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
+}
+
+h2{
+    color: #f27011;
+}
+
+th{
+    color: #1a689b;
+}
+
+button{
+    background-color: #1a689b !important;
+    border-color: #1a689b !important;
+}
+
+.title{
+    text-align: center;
+    margin: 25px auto;
+}
+
+.mx-tb-20{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.rightAlign{
+    float: right;
+}
+
+.header{
+    display: flex;
+    margin: 10px 0px;
+    text-align: right;
+}
+
+.exportBtn{
+    margin-left: 10px;
+}
+
+.crsr-pntr{
+    cursor: pointer;
+}
+
+::ng-deep{
+    .page-item.active .page-link{
+        background-color: #1a689b;
+        border-color: #1a689b;
+    }
+}
